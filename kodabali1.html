@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOBADADI Wi-Fi Service - Reliable High-Speed Internet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --navy-blue: #0a2c5e;
+            --sky-blue: #3498db;
+            --light-blue: #e6f2ff;
+            --accent: #1a73e8;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--sky-blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--navy-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--navy-blue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--sky-blue);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .page-section {
+            padding: 5rem 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--sky-blue);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--sky-blue);
+        }
+        
+        nav ul li a.active {
+            color: var(--sky-blue);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--sky-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--navy-blue);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--sky-blue) 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Highlights Section */
+        .highlights {
+            background-color: var(--light-blue);
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            color: var(--sky-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--navy-blue) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 2rem;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy-blue);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-vision {
+            background-color: var(--light-blue);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .mission-vision h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--sky-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+        
+        .service-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sky-blue);
+            margin-bottom: 1rem;
+        }
+        
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .blog-img {
+            height: 200px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy-blue);
+            font-size: 3rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+        
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: var(--sky-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Coverage Section */
+        .coverage-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .coverage-map {
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .coverage-map i {
+            font-size: 4rem;
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .coverage-map h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .service-areas {
+            margin-bottom: 2rem;
+        }
+        
+        .service-areas h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .service-areas ul {
+            list-style-type: none;
+        }
+        
+        .service-areas li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-areas li i {
+            color: var(--sky-blue);
+            margin-right: 10px;
+        }
+        
+        .request-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .request-form h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: var(--light-blue);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: var(--sky-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--sky-blue);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--navy-blue);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--sky-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--sky-blue);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--sky-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Live Chat Widget */
+        .live-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--sky-blue);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .live-chat:hover {
+            background-color: var(--navy-blue);
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo"><i class="fas fa-wifi"></i>KOBAD<span>ADI</span> Wi-Fi</a>
+                <button class="mobile-menu-btn">☰</button>
+                <nav id="main-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#" class="nav-link" data-page="blog">Wi-Fi Tips</a></li>
+                        <li><a href="#" class="nav-link" data-page="coverage">Coverage</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                        <li><a href="#" class="nav-link" data-page="features">Features</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page-content active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Welcome to KOBADADI Wi-Fi Service</h1>
+                    <p>Your trusted partner in reliable and high-speed Wi-Fi solutions. We specialize in providing stable internet connections for homes, businesses, and public spaces.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn get-connected-btn">Get Connected</a>
+                        <a href="#" class="btn btn-secondary" data-page="services">View Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlights Section -->
+        <div class="page-section highlights">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose KOBADADI Wi-Fi?</h2>
+                    <p>Experience the difference with our premium internet services</p>
+                </div>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">⚡</div>
+                        <h3>Fast Connection</h3>
+                        <p>Blazing-fast internet speeds for all your online needs without interruptions.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">📶</div>
+                        <h3>Stable Connection</h3>
+                        <p>Consistent and reliable connectivity for work, entertainment, and communication.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🔧</div>
+                        <h3>Professional Installation</h3>
+                        <p>Expert setup and configuration for optimal performance in your space.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🛡️</div>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock technical assistance whenever you need it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <div class="container">
+                <h2>Ready to Experience Better Wi-Fi?</h2>
+                <p>Book your installation today and enjoy seamless connectivity in your home or business.</p>
+                <a href="#" class="btn" data-page="contact">Book Installation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About KOBADADI Wi-Fi</h2>
+                    <p>Learn more about our mission and vision</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Our Purpose</h2>
+                        <p>KOBADADI Wi-Fi Service was founded with a simple goal: to provide reliable, high-speed internet connectivity to everyone in our service areas. We believe that internet access is no longer a luxury but a necessity in today's connected world.</p>
+                        <p>Our team of certified technicians and network specialists work tirelessly to ensure that our customers enjoy seamless connectivity for work, education, entertainment, and communication.</p>
+                    </div>
+                    <div class="mission-vision">
+                        <h3>Our Mission</h3>
+                        <p>To connect every home and business with reliable internet, ensuring that no one is left behind in the digital age.</p>
+                        
+                        <h3>Our Vision</h3>
+                        <p>To make Wi-Fi accessible everywhere, creating connected communities that thrive through seamless digital communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive Wi-Fi solutions tailored to your specific needs</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Home Wi-Fi Installation</h3>
+                            <p>Professional installation of high-speed Wi-Fi for your home with optimal coverage in every room.</p>
+                            <div class="service-price">From KES 2,500</div>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Network Troubleshooting</h3>
+                            <p>Diagnose and fix connectivity issues, slow speeds, and network configuration problems.</p>
+                            <div class="service-price">From KES 2,000</div>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <i class="fas fa-hotspot"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Public Hotspot Setup</h3>
+                            <p>Secure and managed Wi-Fi hotspot solutions for businesses and public spaces.</p>
+                            <div class="service-price">From KES 9,000</div>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Smart Home Integration</h3>
+                            <p>Connect and manage all your smart devices with a robust home network solution.</p>
+                            <div class="service-price">From KES 4,500</div>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Maintenance Plans</h3>
+                            <p>Regular network monitoring, updates, and maintenance to ensure optimal performance.</p>
+                            <div class="service-price">From KES 500/month</div>
+                            <a href="#" class="btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Page -->
+    <section id="blog" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Wi-Fi Tips & Blog</h2>
+                    <p>Expert advice to optimize your internet experience</p>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <i class="fas fa-signal"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>How to Boost Your Wi-Fi Signal</h3>
+                            <p>Learn simple techniques to improve your Wi-Fi coverage and eliminate dead zones in your home or office.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Common Wi-Fi Problems and How to Fix Them</h3>
+                            <p>Identify and resolve the most frequent connectivity issues that disrupt your internet experience.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>How to Secure Your Wi-Fi Network</h3>
+                            <p>Essential security practices to protect your network from unauthorized access and cyber threats.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="blog-content">
+                            <h3>Best Router Settings for Maximum Speed</h3>
+                            <p>Optimize your router configuration to get the fastest possible internet speeds from your connection.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Page -->
+    <section id="coverage" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Service Coverage</h2>
+                    <p>Check if we serve your area</p>
+                </div>
+                <div class="coverage-content">
+                    <div class="coverage-map">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Interactive Map - Kenya</h3>
+                        <p>Nairobi Pipeline Area</p>
+                        <p>Currently serving select areas with expansion plans underway</p>
+                    </div>
+                    <div>
+                        <div class="service-areas">
+                            <h3>Areas We Serve</h3>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Pipeline Estate, Nairobi</li>
+                                <li><i class="fas fa-check-circle"></i> South B, Nairobi</li>
+                                <li><i class="fas fa-check-circle"></i> South C, Nairobi</li>
+                                <li><i class="fas fa-check-circle"></i> Imara Daima, Nairobi</li>
+                                <li><i class="fas fa-check-circle"></i> Syokimau, Nairobi</li>
+                                <li><i class="fas fa-check-circle"></i> Mlolongo, Nairobi</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="request-form">
+                            <h3>Request Wi-Fi in Your Area</h3>
+                            <form id="coverageForm">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="area">Your Area</label>
+                                    <input type="text" id="area" class="form-control" placeholder="Enter your area" required>
+                                </div>
+                                <button type="submit" class="btn">Submit Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our team for inquiries, support, or to request our services</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Pipeline Estate, Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Business Phone</h4>
+                                <p>+254723517320</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@kobadadi-wifi.co.ke</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 8:00 PM<br>Saturday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 2rem;">Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" class="form-control" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" class="form-control" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Page -->
+    <section id="features" class="page-content">
+        <div class="page-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Technical Features</h2>
+                    <p>Advanced technology for superior internet experience</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p>Our website works perfectly on all devices - desktop, tablet, and mobile phones.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>SSL Certificate</h3>
+                        <p>Secure encrypted connections to protect your data and privacy.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Live Chat Widget</h3>
+                        <p>Instant support through our live chat feature for quick assistance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO Ready Content</h3>
+                        <p>Optimized content to help customers find our services easily online.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KOBADADI Wi-Fi</h3>
+                    <p>Your trusted partner in reliable and high-speed Wi-Fi solutions for homes, businesses, and public spaces.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#" class="nav-link" data-page="coverage">Coverage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Home Wi-Fi Installation</a></li>
+                        <li><a href="#">Network Troubleshooting</a></li>
+                        <li><a href="#">Public Hotspot Setup</a></li>
+                        <li><a href="#">Smart Home Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Pipeline Estate, Nairobi</li>
+                        <li>+254 723517320</li>
+                        <li>info@kobadadi-wifi.co.ke</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KOBADADI Wi-Fi Service. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+
+        // Navigation between pages
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageContents = document.querySelectorAll('.page-content');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and pages
+                navLinks.forEach(item => item.classList.remove('active'));
+                pageContents.forEach(item => item.classList.remove('active'));
+                
+                // Add active class to clicked link and corresponding page
+                this.classList.add('active');
+                const pageId = this.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('main-nav').classList.remove('active');
+                
+                // Scroll to top when navigating
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Get Connected button functionality
+        document.querySelector('.get-connected-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links and pages
+            navLinks.forEach(item => item.classList.remove('active'));
+            pageContents.forEach(item => item.classList.remove('active'));
+            
+            // Add active class to services link and page
+            document.querySelector('[data-page="services"]').classList.add('active');
+            document.getElementById('services').classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('main-nav').classList.remove('active');
+            
+            // Scroll to top when navigating
+            window.scrollTo(0, 0);
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Coverage form submission
+        document.getElementById('coverageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! We will notify you when we expand to your area.');
+            this.reset();
+        });
+
+        // Live chat widget
+        document.querySelector('.live-chat').addEventListener('click', function() {
+            alert('Live chat feature would open here. This is a demo.');
+        });
+    </script>
+</body>
+</html>
